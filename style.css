@@ -35,12 +35,20 @@
   --shape-c-fill: rgba(0, 0, 0, 0.08);
 }
 
+@font-face {
+  font-family: "Archivo Black";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/ArchivoBlack-Regular.woff2") format("woff2");
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body { height: 100%; }
 
 body {
-  font-family: "Arial Black", Arial, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  font-family: "Archivo Black", "Arial Black", Arial, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
   background: var(--bg);
   color: var(--fg);
   min-height: 100vh;
