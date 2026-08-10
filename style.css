@@ -227,16 +227,16 @@ body {
 }
 
 .shape-a {
-  width: 55vmin;
-  height: 55vmin;
+  width: 70vmin;
+  height: 70vmin;
   top: 10%;
   left: -70vmin;
   animation: flow-a 14s linear -6s infinite;
 }
 
 .shape-b {
-  width: 60vmin;
-  height: 60vmin;
+  width: 75vmin;
+  height: 75vmin;
   bottom: 6%;
   right: -75vmin;
   background: var(--shape-b-fill);
@@ -247,9 +247,9 @@ body {
   width: 0;
   height: 0;
   border: none;
-  border-left: 55vmin solid transparent;
-  border-right: 55vmin solid transparent;
-  border-bottom: 60vmin solid var(--shape-c-fill);
+  border-left: 70vmin solid transparent;
+  border-right: 70vmin solid transparent;
+  border-bottom: 75vmin solid var(--shape-c-fill);
   top: 38%;
   left: -70vmin;
   animation: flow-c 18s linear -10s infinite;
@@ -257,17 +257,17 @@ body {
 
 @keyframes flow-a {
   0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(145vw, 0) rotate(10deg); }
+  100% { transform: translate(170vw, 0) rotate(10deg); }
 }
 
 @keyframes flow-b {
   0% { transform: translate(0, 0); }
-  100% { transform: translate(-150vw, 0); }
+  100% { transform: translate(-175vw, 0); }
 }
 
 @keyframes flow-c {
   0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(150vw, -8vh) rotate(8deg); }
+  100% { transform: translate(175vw, -8vh) rotate(8deg); }
 }
 
 .bar,
