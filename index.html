@@ -105,11 +105,12 @@
       }
 
       var names = ['flow-a', 'flow-b', 'flow-c'];
+      var widths = [70, 75, 140];
       var css = '';
 
       for (i = 0; i < shapes.length; i++) {
         var dir = dirs[i];
-        var offset = 30 + Math.floor(rand() * 40);
+        var offset = widths[i] + 20 + Math.floor(rand() * 40);
         var rot = Math.floor(rand() * 360) - 180;
 
         if (i === 1) {

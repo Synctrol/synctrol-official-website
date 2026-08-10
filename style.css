@@ -231,7 +231,7 @@ body {
   height: 70vmin;
   top: 10%;
   left: -70vmin;
-  animation: flow-a 14s linear -6s infinite;
+  animation: flow-a 14s linear infinite;
 }
 
 .shape-b {
@@ -240,7 +240,7 @@ body {
   bottom: 6%;
   right: -75vmin;
   background: var(--shape-b-fill);
-  animation: flow-b 16s linear -8s infinite;
+  animation: flow-b 16s linear infinite;
 }
 
 .bg-shapes .shape-c {
@@ -252,7 +252,7 @@ body {
   border-bottom: 75vmin solid var(--shape-c-fill);
   top: 38%;
   left: -70vmin;
-  animation: flow-c 18s linear -10s infinite;
+  animation: flow-c 18s linear infinite;
 }
 
 @keyframes flow-a {
