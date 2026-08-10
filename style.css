@@ -311,7 +311,13 @@ body {
   .bg-shapes .shape { display: none; }
 }
 
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
 :root[data-theme="dark"] {
+  color-scheme: dark;
+
   --bg: #000;
   --fg: #fff;
 

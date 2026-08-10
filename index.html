@@ -72,11 +72,17 @@
 
       highlight(current());
 
-      media.addEventListener('change', function () {
+      function onSystemChange() {
         if (!root.hasAttribute('data-theme')) {
           highlight(media.matches ? 'dark' : 'light');
         }
-      });
+      }
+
+      if (media.addEventListener) {
+        media.addEventListener('change', onSystemChange);
+      } else if (media.addListener) {
+        media.addListener(onSystemChange);
+      }
     })();
   </script>
 </body>
