@@ -180,7 +180,7 @@ body {
   animation: drift-b 26s ease-in-out infinite;
 }
 
-.shape-c {
+.bg-shapes .shape-c {
   width: 0;
   height: 0;
   border: none;
