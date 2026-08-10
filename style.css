@@ -287,6 +287,8 @@ body {
 
     --border: 3px solid var(--white);
 
+    /* gray ramp is inverted in dark mode: 300 = darkest, 700 = lightest.
+       Use the role wrappers (--deco-bg, --sub-title-fg, --status-sub-fg) directly. */
     --gray-300: #1a1a1a;
     --gray-500: #999;
     --gray-700: #aaa;
