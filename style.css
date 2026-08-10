@@ -175,6 +175,10 @@ body {
   font-size: 13px;
   letter-spacing: 2px;
   text-align: right;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cell-status { display: flex; flex-direction: column; gap: 8px; }
@@ -327,6 +331,12 @@ body {
   .logo-sub { font-size: 10px; }
 
   .bar { font-size: 11px; padding: 8px 10px; }
+
+  .link-panel { padding: 14px 16px; gap: 12px; }
+
+  .link-mark svg { width: 32px; height: 32px; }
+
+  .link-label { font-size: 12px; letter-spacing: 1px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
