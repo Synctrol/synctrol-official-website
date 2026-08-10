@@ -14,6 +14,7 @@ Synctrol 是一个还在筹建中的音乐社团。本仓库 `synctrol-official-
 - 视觉风格：粗野主义排版（黑白灰、粗体大字、网格结构）
 - 动效：轻量纯 CSS 背景动效，无 JS
 - 纯静态 HTML，无构建工具
+- 支持暗色模式：跟随系统 `prefers-color-scheme` 自动切换，纯黑背景全反转，无 JS
 
 ## 站点类型与地址
 
@@ -37,7 +38,7 @@ Synctrol 是一个还在筹建中的音乐社团。本仓库 `synctrol-official-
 
 - 桌面端：2 列网格 + 跨行主格
 - 移动端：降级为单列
-- 全页用 3px 黑色粗边框分割（装饰性几何图形用 2px 描边）
+- 全页用 3px 黑色粗边框分割（装饰性几何图形用 2px 描边）；暗色模式下 3px 白色粗边框
 
 ## 视觉规范
 
@@ -46,6 +47,24 @@ Synctrol 是一个还在筹建中的音乐社团。本仓库 `synctrol-official-
   - 中文：系统黑体栈（PingFang SC / Microsoft YaHei / Noto Sans CJK）
   - 西文：粗黑体（Arial Black / Impact 系），字重 900
 - 装饰：黑色几何方块、斜线分割等粗野主义元素
+
+## 暗色模式（prefers-color-scheme: dark）
+
+跟随系统自动切换，实现方式为交换 `--black`/`--white` 变量实现整体反转，并覆盖灰阶与背景层：
+
+| 元素 | 浅色 | 暗色 |
+|------|------|------|
+| body 背景 / 文字 | 白底 / 黑字 | 黑底 / 白字 |
+| `.bar` 内容条 | 黑底白字 | 白底黑字（反转） |
+| `.github-link` | 白字，hover 白底黑字 | 黑字，hover 黑底白字 |
+| `.cell-deco` 装饰格 | 浅灰 `#ddd` | 深灰 `#1a1a1a` |
+| `.logo-sub` / `.status-sub` | `#555` / `#888` | `#aaa` / `#999` |
+| 背景网格线 / 扫描线 | 黑低透明 | 白低透明 |
+| 噪点颗粒 | 黑噪点 | 白噪点（`filter: invert(1)`） |
+| 几何图形（方块/三角） | 黑描边黑块 | 白描边白块 |
+| 边框 | 3px 黑色 | 3px 白色 |
+
+`color-scheme` 声明为 `light dark`，原生控件（滚动条等）跟随系统。动画、响应式、`prefers-reduced-motion` 逻辑不变。`index.html` 无需改动。
 
 ## 背景动效（纯 CSS + 内联 SVG，无 JS）
 
