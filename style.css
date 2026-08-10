@@ -227,47 +227,47 @@ body {
 }
 
 .shape-a {
-  width: 120px;
-  height: 120px;
-  top: 20%;
-  left: 8%;
-  animation: drift-a 20s ease-in-out infinite;
+  width: 55vmin;
+  height: 55vmin;
+  top: 10%;
+  left: -28vmin;
+  animation: flow-a 14s ease-in-out infinite;
 }
 
 .shape-b {
-  width: 200px;
-  height: 200px;
-  bottom: 15%;
-  right: 10%;
+  width: 60vmin;
+  height: 60vmin;
+  bottom: 6%;
+  right: -30vmin;
   background: var(--shape-b-fill);
-  animation: drift-b 26s ease-in-out infinite;
+  animation: flow-b 16s ease-in-out infinite;
 }
 
 .bg-shapes .shape-c {
   width: 0;
   height: 0;
   border: none;
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
-  border-bottom: 100px solid var(--shape-c-fill);
-  top: 55%;
-  left: 55%;
-  animation: drift-c 32s ease-in-out infinite;
+  border-left: 55vmin solid transparent;
+  border-right: 55vmin solid transparent;
+  border-bottom: 60vmin solid var(--shape-c-fill);
+  top: 38%;
+  left: -30vmin;
+  animation: flow-c 18s ease-in-out infinite;
 }
 
-@keyframes drift-a {
+@keyframes flow-a {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(30px, -20px) rotate(15deg); }
+  50% { transform: translate(115vw, -8vh) rotate(8deg); }
 }
 
-@keyframes drift-b {
+@keyframes flow-b {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-40px, 25px) scale(1.1); }
+  50% { transform: translate(-120vw, 6vh) scale(1.05); }
 }
 
-@keyframes drift-c {
+@keyframes flow-c {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(20px, 30px) rotate(10deg); }
+  50% { transform: translate(125vw, -10vh) rotate(6deg); }
 }
 
 .bar,
