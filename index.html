@@ -19,6 +19,11 @@
 
   <header class="bar bar-top">
     <span>SYNCTROL&nbsp;·&nbsp;OFFICIAL WEBSITE</span>
+    <nav class="theme-toggle" aria-label="主题切换">
+      <button type="button" data-theme-choice="light" class="theme-option theme-light" aria-pressed="false">亮色</button>
+      <span class="theme-sep" aria-hidden="true">/</span>
+      <button type="button" data-theme-choice="dark" class="theme-option theme-dark" aria-pressed="false">暗色</button>
+    </nav>
   </header>
 
   <main class="grid">
@@ -40,5 +45,39 @@
     <span>敬请期待 · STAY TUNED</span>
     <a class="github-link" href="https://github.com/synctrol" target="_blank" rel="noopener noreferrer">GITHUB&nbsp;↗</a>
   </footer>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var media = window.matchMedia('(prefers-color-scheme: dark)');
+      var lightBtn = document.querySelector('.theme-light');
+      var darkBtn = document.querySelector('.theme-dark');
+
+      function highlight(theme) {
+        var lightActive = theme === 'light';
+        lightBtn.setAttribute('aria-pressed', lightActive);
+        darkBtn.setAttribute('aria-pressed', !lightActive);
+      }
+
+      function current() {
+        return root.getAttribute('data-theme') || (media.matches ? 'dark' : 'light');
+      }
+
+      function setTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        highlight(theme);
+      }
+
+      lightBtn.addEventListener('click', function () { setTheme('light'); });
+      darkBtn.addEventListener('click', function () { setTheme('dark'); });
+
+      highlight(current());
+
+      media.addEventListener('change', function () {
+        if (!root.hasAttribute('data-theme')) {
+          highlight(media.matches ? 'dark' : 'light');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
