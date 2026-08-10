@@ -65,6 +65,7 @@ Synctrol 是一个还在筹建中的音乐社团。本仓库 `synctrol-official-
 
 - 顶部和底部内容条均为静态条，无滚动
 - 文本内容：`SYNCTROL · OFFICIAL WEBSITE` / `网站建设中 · UNDER CONSTRUCTION` / `敬请期待 · STAY TUNED`
+- 底部条右侧含 GitHub 链接：`https://github.com/synctrol`，显示为 `GITHUB ↗`，白字下划线，悬停反色（白底黑字）
 
 ## 文件结构
 
