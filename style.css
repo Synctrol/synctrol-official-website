@@ -309,6 +309,8 @@ body {
     border-right: none;
     border-bottom: var(--border);
     grid-row: auto;
+    align-items: center;
+    text-align: center;
   }
 
   .logo { font-size: 52px; }
