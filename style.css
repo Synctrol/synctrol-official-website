@@ -309,8 +309,8 @@ body {
     border-right: none;
     border-bottom: var(--border);
     grid-row: auto;
-    align-items: center;
-    text-align: center;
+    align-items: flex-end;
+    text-align: right;
     min-height: 60vh;
   }
 
