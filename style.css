@@ -108,6 +108,7 @@ body {
 
 .grid {
   flex: 1;
+  min-width: 0;
   display: grid;
   grid-template-columns: 1.618fr 1fr;
   grid-template-rows: 1.618fr 1fr;
@@ -139,6 +140,8 @@ body {
   flex-direction: column;
   align-items: stretch;
   justify-content: stretch;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .link-panel {
@@ -149,6 +152,7 @@ body {
   gap: 16px;
   flex: 1;
   width: 100%;
+  min-width: 0;
   min-height: 0;
   padding: 20px 24px;
   color: var(--deco-label-fg);
@@ -172,10 +176,12 @@ body {
 }
 
 .link-label {
+  display: block;
   font-size: 13px;
   letter-spacing: 2px;
   text-align: right;
   min-width: 0;
+  flex-shrink: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
