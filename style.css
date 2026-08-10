@@ -279,17 +279,17 @@ body {
 
 @keyframes flow-a {
   0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(250vw, 0) rotate(10deg); }
+  100% { transform: translate(320vw, 0) rotate(10deg); }
 }
 
 @keyframes flow-b {
   0% { transform: translate(0, 0); }
-  100% { transform: translate(-250vw, 0); }
+  100% { transform: translate(-320vw, 0); }
 }
 
 @keyframes flow-c {
   0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(250vw, -8vh) rotate(8deg); }
+  100% { transform: translate(380vw, -8vh) rotate(8deg); }
 }
 
 .bar,
