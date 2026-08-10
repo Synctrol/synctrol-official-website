@@ -64,6 +64,40 @@ body {
 
 .bar-bottom { border-top: var(--border); }
 
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.theme-option {
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: inherit;
+  background: transparent;
+  border: none;
+  padding: 2px 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-option:hover,
+.theme-option:focus-visible {
+  text-decoration: underline;
+}
+
+.theme-option[aria-pressed="true"] {
+  background: var(--bar-fg);
+  color: var(--bar-bg);
+}
+
+.theme-sep {
+  opacity: 0.6;
+  font-size: 12px;
+  pointer-events: none;
+}
+
 .github-link {
   color: var(--link-fg);
   text-decoration: underline;
@@ -277,8 +311,42 @@ body {
   .bg-shapes .shape { display: none; }
 }
 
+:root[data-theme="dark"] {
+  --bg: #000;
+  --fg: #fff;
+
+  --bar-bg: var(--white);
+  --bar-fg: var(--black);
+
+  --border: 3px solid var(--white);
+
+  /* gray ramp is inverted in dark mode: 300 = darkest, 700 = lightest.
+     Use the role wrappers (--deco-bg, --sub-title-fg, --status-sub-fg) directly. */
+  --gray-300: #1a1a1a;
+  --gray-500: #999;
+  --gray-700: #aaa;
+
+  --deco-bg: var(--gray-300);
+  --deco-symbol-bg: var(--white);
+  --deco-label-fg: var(--white);
+
+  --sub-title-fg: var(--gray-700);
+  --status-sub-fg: var(--gray-500);
+
+  --link-fg: var(--black);
+  --link-hover-bg: var(--black);
+  --link-hover-fg: var(--white);
+
+  --grid-line: rgba(255, 255, 255, 0.12);
+  --scanline-line: rgba(255, 255, 255, 0.05);
+  --noise-invert: 1;
+  --shape-border: var(--white);
+  --shape-b-fill: rgba(255, 255, 255, 0.06);
+  --shape-c-fill: rgba(255, 255, 255, 0.08);
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bg: #000;
     --fg: #fff;
 
