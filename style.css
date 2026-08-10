@@ -101,8 +101,8 @@ body {
 .grid {
   flex: 1;
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1.618fr 1fr;
+  grid-template-rows: 1.618fr 1fr;
   border-left: var(--border);
   border-right: var(--border);
 }
@@ -311,6 +311,7 @@ body {
     grid-row: auto;
     align-items: center;
     text-align: center;
+    min-height: 60vh;
   }
 
   .logo { font-size: 52px; }
