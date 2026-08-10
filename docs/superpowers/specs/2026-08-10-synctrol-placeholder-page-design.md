@@ -15,6 +15,7 @@ Synctrol 是一个还在筹建中的音乐社团。本仓库 `synctrol-official-
 - 动效：轻量纯 CSS 背景动效，无 JS
 - 纯静态 HTML，无构建工具
 - 支持暗色模式：跟随系统 `prefers-color-scheme` 自动切换，纯黑背景全反转，无 JS
+- 右上角提供"亮色 / 暗色"手动切换按钮；默认跟随系统，手动选择不持久化，刷新后恢复系统模式
 
 ## 站点类型与地址
 
@@ -64,7 +65,16 @@ Synctrol 是一个还在筹建中的音乐社团。本仓库 `synctrol-official-
 | 几何图形（方块/三角） | 黑描边黑块 | 白描边白块 |
 | 边框 | 3px 黑色 | 3px 白色 |
 
-`color-scheme` 声明为 `light dark`，原生控件（滚动条等）跟随系统。动画、响应式、`prefers-reduced-motion` 逻辑不变。`index.html` 无需改动。
+`color-scheme` 声明为 `light dark`，原生控件（滚动条等）跟随系统。动画、响应式、`prefers-reduced-motion` 逻辑不变。
+
+## 亮/暗切换按钮
+
+- 位置：顶部内容条右侧，固定"亮色 / 暗色"双词，当前生效模式高亮
+- 默认行为：页面加载时跟随系统（`prefers-color-scheme`），JS 用 `matchMedia` 检测并高亮当前系统模式，系统变化时高亮跟随
+- 手动切换：点击词设置 `<html data-theme="light|dark">` 强制覆盖，CSS 中 `[data-theme]` 属性选择器优先于媒体查询
+- 不持久化：无 localStorage，刷新页面后恢复跟随系统
+- 实现：顶部条内两个 `<button>` 按钮组 + 文件底部内联 `<script>`（约 20 行，无依赖）
+- 按钮样式沿用粗野主义：3px 边框、等宽粗体，当前模式反色高亮，浅色/暗色两态适配
 
 ## 背景动效（纯 CSS + 内联 SVG，无 JS）
 
