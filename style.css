@@ -98,21 +98,6 @@ body {
   pointer-events: none;
 }
 
-.github-link {
-  color: var(--link-fg);
-  text-decoration: underline;
-  letter-spacing: 2px;
-  margin-left: auto;
-  padding-left: 24px;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.github-link:hover,
-.github-link:focus-visible {
-  background: var(--link-hover-bg);
-  color: var(--link-hover-fg);
-}
-
 .grid {
   flex: 1;
   display: grid;
@@ -139,7 +124,50 @@ body {
   text-align: right;
 }
 
-.cell-deco { border-bottom: var(--border); background: var(--deco-bg); }
+.cell-links {
+  border-bottom: var(--border);
+  background: var(--deco-bg);
+  padding: 0;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.link-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  padding: 20px 24px;
+  color: var(--deco-label-fg);
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.link-panel + .link-panel {
+  border-top: var(--border);
+}
+
+.link-panel:hover,
+.link-panel:focus-visible {
+  background: var(--deco-symbol-bg);
+  color: var(--deco-bg);
+}
+
+.link-mark {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.link-label {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-align: right;
+}
 
 .cell-status { display: flex; flex-direction: column; gap: 8px; }
 
@@ -151,7 +179,7 @@ body {
 }
 
 .logo-sub {
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--sub-title-fg);
@@ -159,24 +187,9 @@ body {
   text-align: right;
 }
 
-.deco-symbol {
-  width: 44px;
-  height: 44px;
-  background: var(--deco-symbol-bg);
-  margin: 0 auto 10px;
-  animation: pulse 1.2s ease-in-out infinite;
-}
-
-.deco-label { font-size: 13px; letter-spacing: 2px; color: var(--deco-label-fg); }
-
 .status-title { font-size: 24px; font-weight: 900; }
 
 .status-sub { font-size: 11px; letter-spacing: 3px; color: var(--status-sub-fg); }
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(0.8); }
-}
 
 .bg-grid,
 .bg-noise,
@@ -236,18 +249,18 @@ body {
 }
 
 .shape-a {
-  width: 70vmin;
-  height: 70vmin;
+  width: 105vmin;
+  height: 105vmin;
   top: 10%;
-  left: -70vmin;
+  left: -115vmin;
   animation: flow-a 14s linear infinite;
 }
 
 .shape-b {
-  width: 75vmin;
-  height: 75vmin;
+  width: 112.5vmin;
+  height: 112.5vmin;
   bottom: 6%;
-  right: -75vmin;
+  right: -123vmin;
   background: var(--shape-b-fill);
   animation: flow-b 16s linear infinite;
 }
@@ -256,32 +269,32 @@ body {
   width: 0;
   height: 0;
   border: none;
-  border-left: 70vmin solid transparent;
-  border-right: 70vmin solid transparent;
-  border-bottom: 75vmin solid var(--shape-c-fill);
+  border-left: 105vmin solid transparent;
+  border-right: 105vmin solid transparent;
+  border-bottom: 112.5vmin solid var(--shape-c-fill);
   top: 38%;
-  left: -70vmin;
+  left: -220vmin;
   animation: flow-c 18s linear infinite;
 }
 
 @keyframes flow-a {
   0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(170vw, 0) rotate(10deg); }
+  100% { transform: translate(250vw, 0) rotate(10deg); }
 }
 
 @keyframes flow-b {
   0% { transform: translate(0, 0); }
-  100% { transform: translate(-175vw, 0); }
+  100% { transform: translate(-250vw, 0); }
 }
 
 @keyframes flow-c {
   0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(175vw, -8vh) rotate(8deg); }
+  100% { transform: translate(250vw, -8vh) rotate(8deg); }
 }
 
 .bar,
 .grid,
-.github-link {
+.link-panel {
   position: relative;
   z-index: 1;
 }
@@ -300,6 +313,8 @@ body {
 
   .logo { font-size: 52px; }
 
+  .logo-sub { font-size: 10px; }
+
   .bar { font-size: 11px; padding: 8px 10px; }
 
   .bg-shapes .shape { display: none; }
@@ -309,8 +324,7 @@ body {
   .bg-grid,
   .bg-scanline,
   .bg-noise,
-  .bg-shapes,
-  .deco-symbol {
+  .bg-shapes {
     animation: none;
   }
 
