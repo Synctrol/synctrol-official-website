@@ -84,6 +84,59 @@
         media.addListener(onSystemChange);
       }
     })();
+
+    (function () {
+      var shapes = document.querySelectorAll('.bg-shapes .shape');
+      if (!shapes.length) return;
+
+      var seed = Date.now();
+      function rand() {
+        seed = (seed * 1103515245 + 12345) % 2147483648;
+        return seed / 2147483648;
+      }
+
+      var dirs = [];
+      var i;
+      for (i = 0; i < shapes.length; i++) {
+        dirs.push(rand() < 0.5 ? 1 : -1);
+      }
+      if (dirs[0] === dirs[1] && dirs[1] === dirs[2]) {
+        dirs[2] = -dirs[2];
+      }
+
+      var names = ['flow-a', 'flow-b', 'flow-c'];
+      var css = '';
+
+      for (i = 0; i < shapes.length; i++) {
+        var dir = dirs[i];
+        var offset = 30 + Math.floor(rand() * 40);
+        var rot = Math.floor(rand() * 360) - 180;
+
+        if (i === 1) {
+          shapes[i].style.bottom = (5 + Math.floor(rand() * 15)) + '%';
+        } else {
+          shapes[i].style.top = (i === 2 ? 30 : 5) + Math.floor(rand() * 20) + '%';
+        }
+
+        if (dir === 1) {
+          shapes[i].style.left = '-' + offset + 'vmin';
+          shapes[i].style.right = 'auto';
+        } else {
+          shapes[i].style.left = 'auto';
+          shapes[i].style.right = '-' + offset + 'vmin';
+        }
+
+        var dist = 150 * dir;
+        css += '@keyframes ' + names[i] + ' {' +
+          '0% { transform: translate(0, 0) rotate(' + rot + 'deg); }' +
+          '100% { transform: translate(' + dist + 'vw, 0) rotate(' + (rot + 8) + 'deg); }' +
+          '}';
+      }
+
+      var style = document.createElement('style');
+      style.textContent = css;
+      document.head.appendChild(style);
+    })();
   </script>
 </body>
 </html>
