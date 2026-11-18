@@ -38,6 +38,7 @@ export default defineUserConfig({
         title: { zh: '作品发布' },
       },
     },
+    background: './backgrounds/host',
     topbarText: 'SYNCTROL © 2026',
     footbarText: '敬请期待 · STAY TUNED',
     navigation: {
