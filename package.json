@@ -1,0 +1,20 @@
+{
+  "name": "synctrol-official-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Synctrol official website built with VuePress and vuepress-theme-synctrolling",
+  "scripts": {
+    "docs:dev": "vuepress dev .",
+    "docs:build": "vuepress build ."
+  },
+  "engines": {
+    "node": "^20.9.0 || >=22.0.0"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "^2.0.0-rc.24",
+    "vue": "^3.5.0",
+    "vuepress": "^2.0.0-rc.24",
+    "vuepress-theme-synctrolling": "^0.3.0"
+  }
+}

@@ -1,0 +1,13 @@
+title:
+  zh: 占位作品
+copyright: © 2026 Synctrol
+credit:
+  catalogNumber: SYN-000
+discs:
+  - title:
+      zh: 第一碟
+    tracks:
+      - title:
+          zh: 第一曲
+        artists: [Synctrol]
+        duration: 180

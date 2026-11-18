@@ -72,12 +72,13 @@
 - `navigation`：
   - 作品 → `/releases/`
   - 新闻 → `/news/`
-  - 关于 → `/pages/about/`
+  - 关于 → `/about/`（内容目录仍为 `content/pages/about/`，主题将 page 路由为 `/{slug}/`）
 - `socialLinks`（沿用现站外链）：
   - Forums → `https://github.com/orgs/Synctrol/discussions`
   - Bilibili → `https://space.bilibili.com/3546856898431612`
   - GitHub → `https://github.com/synctrol`
-- `linkCloud`：一项，指向关于页 `/pages/about/`
+- `linkCloud`：一项，指向关于页 `/about/`
+- `pagePatterns`：排除 `docs/`，避免规格文档被打进站点
 - `seo`：站点名 Synctrol；中文短简介；`defaultImage` 与 `organization.logo` 使用 `.vuepress/assets/` 下占位 SVG；声明 `release` / `news` collections
 - `tags`：至少声明占位新闻会用到的标签（如 `release`）
 
