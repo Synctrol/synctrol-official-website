@@ -30,6 +30,9 @@ export default defineUserConfig({
     locales: {
       zh: { lang: 'zh-CN', label: '中文', messages: zhMessages },
     },
+    // Latin → Archivo Black; CJK → Noto Sans SC Black. Loaded in client.ts.
+    featureFont:
+      '"Archivo Black", "Noto Sans SC Black", "Arial Black", Arial, "PingFang SC", "Microsoft YaHei", sans-serif',
     tags: {
       release: {
         title: { zh: '作品发布' },

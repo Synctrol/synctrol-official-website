@@ -8,14 +8,13 @@ import Font from 'vite-plugin-font'
  * - HTML: post-build `scripts/minify-html.mjs` (VuePress SSG writes many HTML
  *   files outside Vite's single-index transform)
  * - SVG icons: SVGO inside `scripts/sync-simple-icons.mjs`
- * - Fonts: vite-plugin-font is wired here; drop source fonts under
- *   `.vuepress/fonts/` and import them with `?subsets` when ready, e.g.
- *   `import { css } from './fonts/Feature.ttf?subsets'`
+ * - Fonts: vite-plugin-font splits CJK (Noto Sans SC Black) under `.vuepress/fonts/`.
+ *   Archivo Black is a small Latin woff2 loaded via @font-face in
+ *   `styles/feature-fonts.ts`. Optional `?subsets` still uses scanFiles.
  */
 export function createCompressPlugins(): PluginOption[] {
   return [
     Font.vite({
-      // Used when a font is imported with ?subsets (极小量级 / glyph scan).
       scanFiles: {
         default: [
           'content/**/*.{md,yml}',
