@@ -22,11 +22,14 @@ import {
 
 type GL = WebGL2RenderingContext | WebGLRenderingContext
 
-const FRAME_MS = 1000 / 30
+// Background is decorative: prefer cheap over crisp.
+const FRAME_MS = 1000 / 20
 const MAX_DPR = 1.5
+/** Internal buffer scale vs CSS×DPR; CSS stretches the result. */
+const RENDER_SCALE = 1
 const STATIC_TIME = 12.5
 // Scales every iTime-driven motion in the shader (scroll, rotation, stripes, arrows).
-const TIME_SCALE = 0.13
+const TIME_SCALE = 0.08
 // Fixed-duration ease-in-out when crossing home ↔ non-home (seconds).
 const SPEED_DURATION = 0.5
 const SPEED_EPSILON = 0.002
@@ -85,7 +88,8 @@ function createProgram(canvas: HTMLCanvasElement): Program | null {
   let fragment = FRAGMENT_WEBGL2
   if (!gl) {
     gl = canvas.getContext('webgl', attrs)
-    if (!gl || !gl.getExtension('OES_standard_derivatives')) return null
+    if (!gl) return null
+    // AA no longer needs OES_standard_derivatives (no fwidth in the shader).
     vertex = VERTEX_WEBGL1
     fragment = FRAGMENT_WEBGL1
   }
@@ -200,8 +204,9 @@ function createHost(context: BackgroundReactiveContext) {
   function resize(): boolean {
     const rect = element.getBoundingClientRect()
     const dpr = Math.min(win.devicePixelRatio || 1, MAX_DPR)
-    const w = Math.max(1, Math.round((rect.width || win.innerWidth) * dpr))
-    const h = Math.max(1, Math.round((rect.height || win.innerHeight) * dpr))
+    const scale = dpr * RENDER_SCALE
+    const w = Math.max(1, Math.round((rect.width || win.innerWidth) * scale))
+    const h = Math.max(1, Math.round((rect.height || win.innerHeight) * scale))
     if (canvas.width === w && canvas.height === h) return false
     canvas.width = w
     canvas.height = h
