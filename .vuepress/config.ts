@@ -34,20 +34,22 @@ export default defineUserConfig({
       ],
     },
     socialLinks: {
+      // Absolute /icons/* paths (from simple-icons → public/icons) so <img>
+      // resolves in both dev and build; relative ./assets/* stays unrewritten.
       items: [
         {
           label: 'Forums',
-          icon: './assets/forums.svg',
+          icon: '/icons/forums.svg',
           url: 'https://github.com/orgs/Synctrol/discussions',
         },
         {
           label: 'Bilibili',
-          icon: './assets/bilibili.svg',
+          icon: '/icons/bilibili.svg',
           url: 'https://space.bilibili.com/3546856898431612',
         },
         {
           label: 'GitHub',
-          icon: './assets/github.svg',
+          icon: '/icons/github.svg',
           url: 'https://github.com/synctrol',
         },
       ],
