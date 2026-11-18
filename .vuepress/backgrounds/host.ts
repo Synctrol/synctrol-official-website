@@ -47,7 +47,7 @@ const INK = {
   dark: [0.94, 0.94, 0.95],
 } as const
 
-const OPACITY = { light: 0.07, dark: 0.12 } as const
+const OPACITY = { light: 0.07, dark: 0.2 } as const
 
 interface Program {
   gl: GL
