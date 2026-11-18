@@ -6,19 +6,28 @@
   "description": "Synctrol official website built with VuePress and vuepress-theme-synctrolling",
   "scripts": {
     "icons:sync": "node scripts/sync-simple-icons.mjs",
+    "html:minify": "node scripts/minify-html.mjs",
     "predocs:dev": "npm run icons:sync",
     "docs:dev": "vuepress dev .",
     "predocs:build": "npm run icons:sync",
-    "docs:build": "vuepress build ."
+    "docs:build": "vuepress build . && npm run html:minify"
   },
   "engines": {
     "node": "^20.9.0 || >=22.0.0"
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "^2.0.0-rc.24",
+    "html-minifier-terser": "^7.2.0",
     "simple-icons": "^16.38.0",
+    "svgo": "^4.1.0",
+    "vite-plugin-font": "^5.1.2",
     "vue": "^3.5.0",
     "vuepress": "^2.0.0-rc.24",
     "vuepress-theme-synctrolling": "^0.3.0"
+  },
+  "allowScripts": {
+    "cn-font-split@7.4.3": true,
+    "koffi@2.10.0": true,
+    "protobufjs@7.6.6": true
   }
 }

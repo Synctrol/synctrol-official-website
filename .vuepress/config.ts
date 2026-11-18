@@ -4,10 +4,21 @@ import {
   synctrolTheme,
   zhMessages,
 } from 'vuepress-theme-synctrolling'
+import { createCompressPlugins } from './compress'
 
 export default defineUserConfig({
   base: '/',
-  bundler: viteBundler(),
+  bundler: viteBundler({
+    viteOptions: {
+      build: {
+        // Use Vite's default minifier (oxc/esbuild per Vite version).
+        // Do not force `minify: 'esbuild'` — newer Vite needs a separate esbuild install.
+        minify: true,
+        cssMinify: true,
+      },
+      plugins: createCompressPlugins(),
+    },
+  }),
   // Theme content lives under content/; keep repo docs out of the site.
   pagePatterns: ['**/*.md', '!.vuepress', '!node_modules', '!docs'],
   locales: {
